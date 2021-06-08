@@ -1,10 +1,18 @@
 import Head from 'next/head'
+import axios from 'axios'
 
-export default function Home() {
+export async function getServerSideProps() {
+  let data = await axios.get('http://backend:4000/')
+  return {
+    props: { data: data.data },
+  }
+}
+
+export default function Home(props) {
   return (
     <div className="container">
       <Head>
-        <title>Create Next App + Docker</title>
+        <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -14,6 +22,8 @@ export default function Home() {
         </h1>
 
         <p className="description">
+          <strong>API Response:</strong> {props.data.message}
+          <br />
           Get started by editing <code>pages/index.tsx</code>
         </p>
 
