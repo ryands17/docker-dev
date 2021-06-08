@@ -1,0 +1,11 @@
+FROM node:14-alpine3.13
+
+WORKDIR /usr
+
+COPY . .
+
+RUN yarn --frozen-lockfile
+
+EXPOSE 4000
+
+CMD ["yarn", "workspace", "backend", "dev"]

@@ -8,3 +8,11 @@ services:
       - '3000:3000'
     volumes:
       - './frontend:/usr/frontend'
+  backend:
+    build:
+      context: .
+      dockerfile: ./Dockerfile.backend
+    ports:
+      - '4000:4000'
+    volumes:
+      - './backend:/usr/backend'
