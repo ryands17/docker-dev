@@ -1,0 +1,35 @@
+version: '3'
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: ./Dockerfile.frontend
+    ports:
+      - '3000:3000'
+    volumes:
+      - 'frontend:/usr/frontend:cached'
+  backend:
+    build:
+      context: .
+      dockerfile: ./Dockerfile.backend
+    ports:
+      - '4000:4000'
+    volumes:
+      - 'backend:/usr/backend:cached'
+
+volumes:
+  frontend:
+  backend:
+
+x-mutagen:
+  sync:
+    defaults:
+      ignore:
+        vcs: true
+    frontend:
+      alpha: ./frontend
+      beta: volume://frontend
+    backend:
+      alpha: ./backend
+      beta: volume://backend
+      mode: two-way-resolved

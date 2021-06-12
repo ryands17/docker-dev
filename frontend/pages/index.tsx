@@ -19,9 +19,7 @@ export default function Home(props: any) {
       <main>
         <h1 className="title">
           Welcome to{' '}
-          <a href="https://nextjs.org">
-            Next.js + Docker Compose for development!
-          </a>
+          <a href="https://nextjs.org">Next.js + Docker Compose + Mutagen!</a>
         </h1>
 
         <p className="description">
