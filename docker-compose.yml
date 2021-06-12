@@ -7,7 +7,7 @@ services:
     ports:
       - '3000:3000'
     volumes:
-      - './frontend:/usr/frontend'
+      - './frontend:/usr/frontend:cached'
   backend:
     build:
       context: .
@@ -15,4 +15,4 @@ services:
     ports:
       - '4000:4000'
     volumes:
-      - './backend:/usr/backend'
+      - './backend:/usr/backend:cached'

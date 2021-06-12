@@ -8,7 +8,7 @@ export async function getServerSideProps() {
   }
 }
 
-export default function Home(props) {
+export default function Home(props: any) {
   return (
     <div className="container">
       <Head>
@@ -18,7 +18,10 @@ export default function Home(props) {
 
       <main>
         <h1 className="title">
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          Welcome to{' '}
+          <a href="https://nextjs.org">
+            Next.js + Docker Compose for development!
+          </a>
         </h1>
 
         <p className="description">
